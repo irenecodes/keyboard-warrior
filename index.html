@@ -8,16 +8,34 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-    <div id="timer"></div>
-    <div class="container">
-      <div id="quote"></div>
-      <textarea
-        name=""
-        id="quoteInput"
-        cols="30"
-        rows="10"
-        autofocus
-      ></textarea>
+    <h1>Keyboard Warrior</h1>
+    <div class="start-modal">
+      <p>
+        How much can you score before the timer runs out? Click start to find
+        out!
+      </p>
+      <button id="start-btn">START</button>
+    </div>
+
+    <div class="current-game">
+      <!-- <div class="countdown">3...2...1</div> -->
+      <div id="timer"></div>
+      <div id="score">Current Score:</div>
+      <div class="container">
+        <div id="quote"></div>
+        <textarea
+          name=""
+          id="quoteInput"
+          cols="30"
+          rows="10"
+          autofocus
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="finished-modal">
+      <p>Good effort! You scored X points in X seconds.</p>
+      <button id="new-game-btn">Start a new game?</button>
     </div>
     <!-- link to js file -->
     <script src="js/scripts.js"></script>

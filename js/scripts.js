@@ -1,6 +1,12 @@
+// DOM Elements
 const quoteDisplay = document.getElementById("quote");
 const quoteInput = document.getElementById("quoteInput");
 const timer = document.getElementById("timer");
+const startBtn = document.getElementById("start-btn");
+const newGameBtn = document.getElementById("new-game-btn");
+const scoreDisplay = document.getElementById("score");
+let startModal = document.querySelector(".start-modal");
+let currentGame = document.querySelector(".current-game");
 
 let startTime;
 
@@ -19,7 +25,7 @@ startTimer = () => {
   timer.innerText = 0;
   startTime = new Date();
   setInterval(() => {
-    timer.innerText = getTimerTime() + " seconds";
+    timer.innerText = "Seconds: " + getTimerTime();
   }, 1000);
 };
 
@@ -34,7 +40,14 @@ async function newQuote() {
     quoteDisplay.appendChild(quoteParagraph);
   });
   quoteInput.value = null;
+
+  startModal.style.display = "none";
+  currentGame.style.display = "block";
+
   startTimer();
 }
 
-newQuote();
+// initialize Game
+startBtn.addEventListener("click", newQuote);
+
+newGameBtn.addEventListener("click", newQuote);
