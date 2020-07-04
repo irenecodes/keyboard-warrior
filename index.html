@@ -20,7 +20,7 @@
     <div class="current-game">
       <div class="countdown">COUNTDOWN HERE</div>
       <div id="timer"></div>
-      <div>Current Score: <span id="score"></span></div>
+      <div>Current Score: <span id="score">0</span></div>
       <div class="container">
         <div id="quote"></div>
         <textarea
@@ -35,8 +35,13 @@
 
     <div class="finished-modal">
       <p>Game Over!</p>
-      <p>Good effort! You scored X points in X seconds.</p>
-      <button id="new-game-btn">Start a new game?</button>
+      <p>
+        Good effort! You scored X points in
+        <span id="overall-timer"></span> seconds.
+      </p>
+      <button id="new-game-btn" onClick="window.location.reload()">
+        Start a new game?
+      </button>
     </div>
     <!-- link to js file -->
     <script src="js/scripts.js"></script>
