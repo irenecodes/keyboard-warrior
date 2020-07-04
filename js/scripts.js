@@ -3,10 +3,11 @@ const instructionsDOM = document.querySelector(".instructions");
 const infoBtn = document.querySelector(".info svg");
 const countSound = document.getElementById("count-audio");
 
+const volumeOn = true;
+//if volumeOn, display the appropriate svg to toggle
+
 const startModal = document.querySelector(".start-modal");
 const startBtn = document.getElementById("start-btn");
-//show countdown on page before game starts when countdown hits 0
-// add sound effect for countdown?
 const countdownTimerDOM = document.querySelector(".countdown");
 
 // current game

@@ -179,14 +179,14 @@ input::-moz-focus-inner {
 .toggle,
 .countdown,
 .current-game,
-.finished-modal {
+.finished-modal,
+#count-audio {
   display: none;
 }
 
 // global styles
 body {
-  // background: #000;
-  // color: #fff;
+  font-size: 16px;
 }
 
 .wrapper {
@@ -194,18 +194,10 @@ body {
   width: 90%;
 }
 
-h1 {
-  max-width: 33%;
-}
-
 .info {
   svg {
     cursor: pointer;
   }
-}
-
-// start modal
-.start-modal {
 }
 
 .incorrect {
@@ -217,10 +209,40 @@ h1 {
 }
 
 .countdown {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
   height: 100vh;
-  background-color: rgba(167, 214, 248, 0.5);
+  width: 100%;
+  background-color: rgba(167, 214, 248, 0.7);
   margin: auto;
   color: #000;
-  font-size: 100px;
+  font-size: 5rem;
   text-align: center;
+}
+
+main {
+  min-height: 100%;
+  overflow: auto;
+  padding-bottom: 50px;
+}
+
+// game-area
+#quote,
+textarea {
+  font-size: 1.5rem;
+}
+
+textarea {
+  width: 100%;
+}
+
+footer {
+  position: relative;
+  margin-top: -40px; /* negative value of footer height */
+  // clear: both;
+  padding-top: 20px;
 }

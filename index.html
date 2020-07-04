@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Keyboard Warrior</title>
     <!-- link to css style -->
     <link
@@ -14,103 +14,101 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-    <h1 class="mx-auto text-center">Keyboard Warrior</h1>
-    <div class="info p-2 m-3 border">
-      <svg
-        width="1em"
-        height="1em"
-        viewBox="0 0 16 16"
-        class="bi bi-info-circle-fill"
-        fill="currentColor"
-        focusable="false"
-        role="img"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
-        />
-      </svg>
-      <div class="instructions">
-        <p>
-          Instructions: You have 20 seconds to type out the quote exactly as how
-          it is shown on screen. Once you've typed the quote correctly, a new
-          one will show up and you'll again have 20 seconds to test the strength
-          of your keyboard. How high can you score?
-        </p>
-        <p>Characters that are not typed out yet will be tracked in yellow.</p>
-      </div>
-    </div>
-    <div class="start-modal p-2 m-3 border">
-      <p>
-        How much can you score before the timer runs out? Click start to find
-        out!
-      </p>
-      <button id="start-btn" class="btn btn-outline-success">START</button>
-    </div>
-
-    <div class="countdown"></div>
-
-    <div class="current-game p-2 m-3 border">
-      <div>
-        <svg
-          width="1em"
-          height="1em"
-          viewBox="0 0 16 16"
-          class="bi bi-alarm"
-          fill="currentColor"
-          focusable="false"
-          role="img"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M8 15A6 6 0 1 0 8 3a6 6 0 0 0 0 12zm0 1A7 7 0 1 0 8 2a7 7 0 0 0 0 14z"
-          />
-          <path
-            fill-rule="evenodd"
-            d="M8 4.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.053.224l-1.5 3a.5.5 0 1 1-.894-.448L7.5 8.882V5a.5.5 0 0 1 .5-.5z"
-          />
-          <path
-            d="M.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.035 8.035 0 0 0-3.527-3.527z"
-          />
-          <path
-            fill-rule="evenodd"
-            d="M11.646 14.146a.5.5 0 0 1 .708 0l1 1a.5.5 0 0 1-.708.708l-1-1a.5.5 0 0 1 0-.708zm-7.292 0a.5.5 0 0 0-.708 0l-1 1a.5.5 0 0 0 .708.708l1-1a.5.5 0 0 0 0-.708zM5.5.5A.5.5 0 0 1 6 0h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"
-          />
-          <path d="M7 1h2v2H7V1z" />
+    <header>
+      <h1 class=" text-center">Keyboard Warrior</h1>
+      <div class="info p-2 m-3 border">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" focusable="false"
+          role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
         </svg>
-        Time left: 
-        <span id="timer"></span>
+        <div class="instructions">
+          <p>
+            Instructions: You have 20 seconds to type out the quote exactly as how
+            it is shown on screen. Once you've typed the quote correctly, a new
+            one will show up and you'll again have 20 seconds to test the strength
+            of your keyboard. How high can you score?
+          </p>
+          <p>Characters that are not typed out yet will be tracked in yellow.</p>
+        </div>
       </div>
-      <div>Current Score: <span id="score">0</span></div>
-      <div>
-        <div id="quote"></div>
-        <textarea
-          class="rounded"
-          name=""
-          id="quoteInput"
-          cols="30"
-          rows="10"
-          autofocus
-        ></textarea>
+      <div class="controls">
+        <!-- toggle mute  -->
+      
+        <!-- mute volume  -->
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-volume-mute-fill" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zm7.137 2.096a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708l4-4a.5.5 0 0 1 .708 0z" />
+          <path fill-rule="evenodd" d="M9.146 5.646a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0z" />
+        </svg>
+      
+        <!-- default volume on  -->
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-volume-up-fill" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z" />
+          <path
+            d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z" />
+          <path
+            d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707z" />
+          <path fill-rule="evenodd"
+            d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z" />
+        </svg>
       </div>
-    </div>
+      
+    </header>
+    <main>
+      <div class="countdown mt-0 mx-auto">
+        <p>NUMBER HERE</p>
+      </div>
 
-    <div class="finished-modal p-2 m-3 border"">
-      <p>Game Over!</p>
-      <p>
-        Good effort! You scored <span id="final-score">0</span> points in
+      <div class="start-modal p-2 m-3 border">
+        <p>
+          How much can you score before the timer runs out? Click the start button to find out!
+        </p>
+        <button id="start-btn" class="btn btn-block btn-outline-success">START</button>
+      </div>
+      
+      <div class="current-game p-2 m-3 border">
+        <div class="game-status d-flex justify-content-around">
+          <div>
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-alarm" fill="currentColor" focusable="false"
+              role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 15A6 6 0 1 0 8 3a6 6 0 0 0 0 12zm0 1A7 7 0 1 0 8 2a7 7 0 0 0 0 14z" />
+              <path fill-rule="evenodd"
+                d="M8 4.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.053.224l-1.5 3a.5.5 0 1 1-.894-.448L7.5 8.882V5a.5.5 0 0 1 .5-.5z" />
+              <path
+                d="M.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.035 8.035 0 0 0-3.527-3.527z" />
+              <path fill-rule="evenodd"
+                d="M11.646 14.146a.5.5 0 0 1 .708 0l1 1a.5.5 0 0 1-.708.708l-1-1a.5.5 0 0 1 0-.708zm-7.292 0a.5.5 0 0 0-.708 0l-1 1a.5.5 0 0 0 .708.708l1-1a.5.5 0 0 0 0-.708zM5.5.5A.5.5 0 0 1 6 0h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z" />
+              <path d="M7 1h2v2H7V1z" />
+            </svg>
+            Time left:
+            <span id="timer"></span>
+          </div>
+          <div>Current Score: <span id="score">0</span></div>
+        </div>
+      
+        <div class="game-area">
+          <div id="quote"></div>
+          <textarea class="rounded" name="" id="quoteInput" cols="5" rows="5" autofocus></textarea>
+        </div>
+      </div>
+      
+      <div class="finished-modal p-2 m-3 border"">
+            <p>Game Over!</p>
+            <p>
+              Good effort! You scored <span id=" final-score">0</span> points in
         <span id="overall-timer"></span> seconds.
-      </p>
-      <button id="new-game-btn" onClick="window.location.reload()">
-        Start a new game?
-      </button>
-    </div>
-    <!-- link to js file -->
-    <footer class="bg-info text-dark text-center">
+        </p>
+        <button id="new-game-btn" class="btn btn-block btn-outline-success" onClick="window.location.reload()">
+          Start a new game?
+        </button>
+      </div>
+    </main>
+    
+    <footer class="bg-info py-2 text-dark text-center">
       Made my
       <a
         class="bg-info text-dark"
@@ -125,6 +123,15 @@
       src="http://www.soundjay.com/button/beep-07.wav"
       controls="false"
     ></audio>
+    
+    <!-- Bootstrap  -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
     <script src="js/scripts.js"></script>
   </body>
 </html>
