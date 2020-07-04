@@ -178,13 +178,18 @@ input::-moz-focus-inner {
 // hide displays
 .current-game,
 .finished-modal {
-  display: none;
+  // display: none;
 }
 
 // global styles
 body {
   // background: #000;
   // color: #fff;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 90%;
 }
 
 // start modal

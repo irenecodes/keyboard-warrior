@@ -207,9 +207,9 @@ input::-moz-focus-inner {
   overflow: hidden;
 }
 
-.current-game,
-.finished-modal {
-  display: none;
+.wrapper {
+  margin: 0 auto;
+  width: 90%;
 }
 
 .start-modal {
