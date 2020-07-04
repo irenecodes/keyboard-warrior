@@ -1,14 +1,20 @@
 // DOM Elements
+const startModal = document.querySelector(".start-modal");
+const startBtn = document.getElementById("start-btn");
+//show countdown on page before game starts when countdown hits 0
+const countdownTimerDOM = document.querySelector(".countdown");
+
+// current game
+const currentGame = document.querySelector(".current-game");
 const quoteDisplay = document.getElementById("quote");
 const quoteInput = document.getElementById("quoteInput");
 const timer = document.getElementById("timer");
-const startBtn = document.getElementById("start-btn");
-const newGameBtn = document.getElementById("new-game-btn");
 const scoreDisplay = document.getElementById("score");
-const startModal = document.querySelector(".start-modal");
-const currentGame = document.querySelector(".current-game");
-const countdownTimerDOM = document.querySelector(".countdown");
+
+// finished modal
 const finishedModal = document.querySelector(".finished-modal");
+const newGameBtn = document.getElementById("new-game-btn");
+const finalScoreDisplay = document.getElementById("final-score");
 const overallTimer = document.getElementById("overall-timer");
 
 // Global Variables
@@ -20,15 +26,16 @@ let score = 0;
 let countdownTimer = 4;
 let isPlaying = false;
 
-// returns overall time value
+// newTime returns overall time value in DOM
 watchTime = () => {
   if (isPlaying) {
     setInterval(() => {
       newTime = Math.floor((Date.now() - startTime) / 1000);
     }, 1000);
   }
+  newTime = newTime - 3;
   // rid of countdown timer
-  overallTimer.innerText = newTime - 3;
+  overallTimer.innerText = newTime;
 };
 
 getQuote = () => {
@@ -70,12 +77,19 @@ countdown = () => {
     countdownTimer--;
     // after countdown, start actual game countdown
   } else if (countdownTimer === 0) {
+    // fade out?
+    countdownTimerDOM.style.display = "none";
     if (time > 0) {
       startModal.style.display = "none";
       currentGame.style.display = "block";
       time--;
       isPlaying = true;
       watchTime();
+      if (time <= 5) {
+        timer.classList.add("warning-red");
+      } else {
+        timer.classList.remove("warning-red");
+      }
     } else if (time === 0) {
       currentGame.style.display = "none";
       finishedModal.style.display = "block";
@@ -88,19 +102,12 @@ countdown = () => {
 checkMatch = () => {
   let quoteArray = quoteDisplay.querySelectorAll("span");
   const userInput = quoteInput.value.split("");
-  console.log(quoteArray, userInput);
-  // let correct = true;
   quoteArray.forEach((el, i) => {
     const character = userInput[i];
-    console.log("user typing", character);
     if (character == el.innerText) {
-      console.log("check: correct");
-      el.classList.add("correct");
       el.classList.remove("incorrect");
     } else {
-      console.log("check: wrong!");
       el.classList.add("incorrect");
-      el.classList.remove("correct");
     }
   });
 
@@ -110,15 +117,14 @@ checkMatch = () => {
     time = 21;
   }
   scoreDisplay.innerHTML = score;
+  finalScoreDisplay.innerHTML = score;
 };
 
 // returns boolean
 matchWords = () => {
   if (quoteInput.value === quoteDisplay.innerText) {
-    console.log("correct");
     return true;
   } else {
-    console.log("wrong");
     return false;
   }
 };
