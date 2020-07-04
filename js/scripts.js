@@ -1,6 +1,4 @@
 // DOM Elements
-const instructionsDOM = document.querySelector(".instructions");
-const infoBtn = document.querySelector(".info svg");
 const countSound = document.getElementById("count-audio");
 
 const volumeOn = true;
@@ -140,11 +138,5 @@ matchWords = () => {
   }
 };
 
-infoToggle = () => {
-  instructionsDOM.classList.toggle("toggle");
-};
-
 // Start Game
 startBtn.addEventListener("click", init);
-
-infoBtn.addEventListener("click", infoToggle);

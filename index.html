@@ -16,25 +16,44 @@
   <body>
     <header>
       <h1 class=" text-center">Keyboard Warrior</h1>
-      <div class="info p-2 m-3 border">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" focusable="false"
-          role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-        </svg>
-        <div class="instructions">
-          <p>
-            Instructions: You have 20 seconds to type out the quote exactly as how
-            it is shown on screen. Once you've typed the quote correctly, a new
-            one will show up and you'll again have 20 seconds to test the strength
-            of your keyboard. How high can you score?
-          </p>
-          <p>Characters that are not typed out yet will be tracked in yellow.</p>
+      <div class="controls p-2 m-3 border">
+        
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#instructionsModal">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" focusable="false"
+            role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+          </svg>
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="Click to view instructions."
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="instructionsLabel">Instructions</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  You have 20 seconds to type out the quote exactly as how
+                  it is shown on screen. Once you've typed the quote correctly, a new
+                  one will show up and you'll again have 20 seconds to test the strength
+                  of your keyboard. How high can you score?
+                </p>
+                <p>Characters that are not typed out yet will be tracked in <span class="incorrect">yellow.</span></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="controls">
+
         <!-- toggle mute  -->
-      
         <!-- mute volume  -->
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-volume-mute-fill" fill="currentColor"
           xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +61,7 @@
             d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zm7.137 2.096a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708l4-4a.5.5 0 0 1 .708 0z" />
           <path fill-rule="evenodd" d="M9.146 5.646a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0z" />
         </svg>
-      
+        
         <!-- default volume on  -->
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-volume-up-fill" fill="currentColor"
           xmlns="http://www.w3.org/2000/svg">
@@ -56,12 +75,9 @@
             d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z" />
         </svg>
       </div>
-      
     </header>
     <main>
-      <div class="countdown mt-0 mx-auto">
-        <p>NUMBER HERE</p>
-      </div>
+      <div class="countdown mt-0 mx-auto"></div>
 
       <div class="start-modal p-2 m-3 border">
         <p>
