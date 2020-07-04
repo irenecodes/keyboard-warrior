@@ -15,7 +15,7 @@
   </head>
   <body>
     <h1 class="mx-auto text-center">Keyboard Warrior</h1>
-    <div class="info mx-3">
+    <div class="info p-2 m-3 border">
       <svg
         width="1em"
         height="1em"
@@ -34,24 +34,25 @@
       </svg>
       <div class="instructions">
         <p>
-          You have 20 seconds to type out the quote exactly as how it is shown
-          on screen. Once you've typed the quote correctly, a new one will show
-          up and you'll again have 20 seconds to test the strength of your
-          keyboard. How high can you score?
+          Instructions: You have 20 seconds to type out the quote exactly as how
+          it is shown on screen. Once you've typed the quote correctly, a new
+          one will show up and you'll again have 20 seconds to test the strength
+          of your keyboard. How high can you score?
         </p>
         <p>Characters that are not typed out yet will be tracked in yellow.</p>
       </div>
     </div>
-    <div class="start-modal p-2 m-3">
+    <div class="start-modal p-2 m-3 border">
       <p>
         How much can you score before the timer runs out? Click start to find
         out!
       </p>
-      <button id="start-btn">START</button>
+      <button id="start-btn" class="btn btn-outline-success">START</button>
     </div>
 
-    <div class="current-game">
-      <div class="countdown"></div>
+    <div class="countdown"></div>
+
+    <div class="current-game p-2 m-3 border">
       <div>
         <svg
           width="1em"
@@ -81,10 +82,11 @@
           />
           <path d="M7 1h2v2H7V1z" />
         </svg>
+        Time left: 
         <span id="timer"></span>
       </div>
       <div>Current Score: <span id="score">0</span></div>
-      <div class="container">
+      <div>
         <div id="quote"></div>
         <textarea
           class="rounded"
@@ -97,7 +99,7 @@
       </div>
     </div>
 
-    <div class="finished-modal">
+    <div class="finished-modal p-2 m-3 border"">
       <p>Game Over!</p>
       <p>
         Good effort! You scored <span id="final-score">0</span> points in

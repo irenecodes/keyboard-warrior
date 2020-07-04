@@ -81,13 +81,14 @@ init = () => {
 
 countdown = () => {
   if (countdownTimer > 0) {
+    countdownTimerDOM.innerHTML = countdownTimer;
+    countdownTimerDOM.style.display = "block";
     countdownTimer--;
     countSound.play();
-
     // after countdown, start actual game countdown
   } else if (countdownTimer === 0) {
     // fade out?
-    // countdownTimerDOM.style.display = "none";
+    countdownTimerDOM.style.display = "none";
     if (time > 0) {
       startModal.style.display = "none";
       currentGame.style.display = "block";
@@ -106,7 +107,6 @@ countdown = () => {
     }
     timer.innerHTML = time;
   }
-  countdownTimerDOM.innerHTML = countdownTimer;
 };
 
 checkMatch = () => {

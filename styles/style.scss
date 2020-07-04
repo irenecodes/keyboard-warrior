@@ -177,6 +177,7 @@ input::-moz-focus-inner {
 
 // hide displays
 .toggle,
+.countdown,
 .current-game,
 .finished-modal {
   display: none;
@@ -205,19 +206,21 @@ h1 {
 
 // start modal
 .start-modal {
-  border: 1px solid #000;
-}
-
-#start-btn {
-  background: green;
-  color: #fff;
-  padding: 20px 40px;
 }
 
 .incorrect {
-  background: yellow;
+  background: #ffff00;
 }
 
 .warning-red {
-  color: red;
+  color: #ff0000;
+}
+
+.countdown {
+  height: 100vh;
+  background-color: rgba(167, 214, 248, 0.5);
+  margin: auto;
+  color: #000;
+  font-size: 100px;
+  text-align: center;
 }
