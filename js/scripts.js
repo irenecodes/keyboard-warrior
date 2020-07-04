@@ -15,7 +15,7 @@ const overallTimer = document.getElementById("overall-timer");
 //use Date.now() because setInt and setTimeout are arbitrary
 let startTime = Date.now();
 let newTime;
-let time = 5; //21;
+let time = 21;
 let score = 0;
 let countdownTimer = 4;
 let isPlaying = false;
@@ -86,10 +86,28 @@ countdown = () => {
 };
 
 checkMatch = () => {
+  let quoteArray = quoteDisplay.querySelectorAll("span");
+  const userInput = quoteInput.value.split("");
+  console.log(quoteArray, userInput);
+  // let correct = true;
+  quoteArray.forEach((el, i) => {
+    const character = userInput[i];
+    console.log("user typing", character);
+    if (character == el.innerText) {
+      console.log("check: correct");
+      el.classList.add("correct");
+      el.classList.remove("incorrect");
+    } else {
+      console.log("check: wrong!");
+      el.classList.add("incorrect");
+      el.classList.remove("correct");
+    }
+  });
+
   if (matchWords()) {
     score++;
     newQuote();
-    time = 11;
+    time = 21;
   }
   scoreDisplay.innerHTML = score;
 };
