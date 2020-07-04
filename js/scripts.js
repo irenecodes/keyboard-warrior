@@ -25,6 +25,7 @@ const overallTimer = document.getElementById("overall-timer");
 //use Date.now() because setInt and setTimeout are arbitrary
 let startTime = Date.now();
 let newTime;
+let finalScore;
 let time = 21;
 let score = 0;
 let countdownTimer = 3;
@@ -103,6 +104,7 @@ countdown = () => {
     } else if (time === 0) {
       currentGame.style.display = "none";
       finishedModal.style.display = "block";
+      finalScoreDisplay.innerHTML = finalScore;
     }
     timer.innerHTML = time;
   }
@@ -126,7 +128,7 @@ checkMatch = () => {
     time = 21;
   }
   scoreDisplay.innerHTML = score;
-  finalScoreDisplay.innerHTML = score;
+  finalScore = score;
 };
 
 // returns boolean
