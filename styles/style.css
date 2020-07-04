@@ -207,9 +207,23 @@ input::-moz-focus-inner {
   overflow: hidden;
 }
 
+.toggle,
+.current-game,
+.finished-modal {
+  display: none;
+}
+
 .wrapper {
   margin: 0 auto;
   width: 90%;
+}
+
+h1 {
+  max-width: 33%;
+}
+
+.info svg {
+  cursor: pointer;
 }
 
 .start-modal {

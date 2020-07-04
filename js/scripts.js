@@ -1,7 +1,12 @@
 // DOM Elements
+const instructionsDOM = document.querySelector(".instructions");
+const infoBtn = document.querySelector(".info svg");
+const countSound = document.getElementById("count-audio");
+
 const startModal = document.querySelector(".start-modal");
 const startBtn = document.getElementById("start-btn");
 //show countdown on page before game starts when countdown hits 0
+// add sound effect for countdown?
 const countdownTimerDOM = document.querySelector(".countdown");
 
 // current game
@@ -23,7 +28,7 @@ let startTime = Date.now();
 let newTime;
 let time = 21;
 let score = 0;
-let countdownTimer = 4;
+let countdownTimer = 3;
 let isPlaying = false;
 
 // newTime returns overall time value in DOM
@@ -65,6 +70,8 @@ checkStatus = () => {
 };
 
 init = () => {
+  startBtn.disabled = true;
+  startBtn.style.cursor = "wait";
   setInterval(countdown, 1000);
   newQuote();
   quoteInput.addEventListener("input", checkMatch);
@@ -75,10 +82,12 @@ init = () => {
 countdown = () => {
   if (countdownTimer > 0) {
     countdownTimer--;
+    countSound.play();
+
     // after countdown, start actual game countdown
   } else if (countdownTimer === 0) {
     // fade out?
-    countdownTimerDOM.style.display = "none";
+    // countdownTimerDOM.style.display = "none";
     if (time > 0) {
       startModal.style.display = "none";
       currentGame.style.display = "block";
@@ -87,6 +96,7 @@ countdown = () => {
       watchTime();
       if (time <= 5) {
         timer.classList.add("warning-red");
+        countSound.play();
       } else {
         timer.classList.remove("warning-red");
       }
@@ -129,5 +139,11 @@ matchWords = () => {
   }
 };
 
+infoToggle = () => {
+  instructionsDOM.classList.toggle("toggle");
+};
+
 // Start Game
 startBtn.addEventListener("click", init);
+
+infoBtn.addEventListener("click", infoToggle);

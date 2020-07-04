@@ -176,9 +176,10 @@ input::-moz-focus-inner {
 }
 
 // hide displays
+.toggle,
 .current-game,
 .finished-modal {
-  // display: none;
+  display: none;
 }
 
 // global styles
@@ -190,6 +191,16 @@ body {
 .wrapper {
   margin: 0 auto;
   width: 90%;
+}
+
+h1 {
+  max-width: 33%;
+}
+
+.info {
+  svg {
+    cursor: pointer;
+  }
 }
 
 // start modal
