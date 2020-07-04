@@ -1,8 +1,8 @@
 // DOM Elements
 const countSound = document.getElementById("count-audio");
 
-const volumeOn = true;
-//if volumeOn, display the appropriate svg to toggle
+const muteBtn = document.querySelector(".volume button");
+const volumeStatus = document.querySelector(".volume span");
 
 const startModal = document.querySelector(".start-modal");
 const startBtn = document.getElementById("start-btn");
@@ -138,5 +138,23 @@ matchWords = () => {
   }
 };
 
+toggleVolume = () => {
+  if (!countSound.muted) {
+    countSound.muted = true;
+    muteBtn.classList.remove("btn-light");
+    muteBtn.classList.add("btn-danger");
+    muteBtn.setAttribute("aria-pressed", true);
+    volumeStatus.innerHTML = "Sound: Off";
+  } else {
+    countSound.muted = false;
+    muteBtn.classList.remove("btn-danger");
+    muteBtn.classList.add("btn-light");
+    muteBtn.removeAttribute("aria-pressed");
+    volumeStatus.innerHTML = "Sound: On";
+  }
+};
+
 // Start Game
 startBtn.addEventListener("click", init);
+
+muteBtn.addEventListener("click", toggleVolume);
