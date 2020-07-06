@@ -77,11 +77,6 @@ init = () => {
   setInterval(countdown, 1000);
   newQuote();
   quoteInput.addEventListener("input", checkMatch);
-  // checkFinalScoreIsHigh();
-  // check game status
-  // isPlaying = true;
-  checkStatus();
-  // setInterval(checkStatus, 50);
 };
 
 countdown = () => {
@@ -135,6 +130,7 @@ checkMatch = () => {
   scoreDisplay.innerHTML = score;
 };
 
+// check checkFinalScoreIsHigh is running every second - will need to check why bc the video keeps updating in the DOM every second
 checkFinalScoreIsHigh = () => {
   console.log("run");
   finalScore = score;
@@ -142,16 +138,16 @@ checkFinalScoreIsHigh = () => {
   finalScoreDisplay.innerHTML = finalScore;
   if (finalScore >= 3) {
     // currently adds this each time a score is over 5. need to adjust to only append once
-    // let highScoreMessage = document.createElement("p");
-    // highScoreMessage.innerHTML = "Wow! That's super fast. Have a break:";
+    const highScoreMedia = document.createElement("iframe");
+    highScoreMedia.src = "https://www.youtube.com/embed/TyEBeHvNJvE";
+    highScoreMedia.width = "560";
+    highScoreMedia.height = "315";
+    highScoreMedia.allowFullscreen;
 
     // const bossLevelSpeed = `<iframe width="560" height="315" src="https://www.youtube.com/embed/TyEBeHvNJvE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-    // // endMessage.appendChild(highScoreMessage);
-    // endMessage.insertAdjacentHTML(
-    //   "beforeEnd",
-    //   "<p>Wow! That's super fast. Have a break:</p>"
-    // );
+
     endMessage.innerHTML = "Wow! That's super fast. Have a break:";
+    endMessage.appendChild(highScoreMedia);
   } else {
     endMessage.innerHTML = "Good Effort. Better luck next time!";
   }
@@ -193,3 +189,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("body").classList.add("loaded");
   }, 3000);
 });
+
+// to do
+// - fix overall timer. inaccurate time at end of game
+
+// extras
+// - tweet button to share on twitter your score and url to game
