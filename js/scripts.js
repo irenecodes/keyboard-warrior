@@ -27,7 +27,7 @@ const endMessage = document.getElementById("end-message");
 let startTime = Date.now();
 let newTime;
 let finalScore;
-let time = 5; //21;
+let time = 21;
 let score = 0;
 let countdownTimer = 3;
 let isPlaying = false;
@@ -123,7 +123,7 @@ checkMatch = () => {
   if (matchWords()) {
     score++;
     newQuote();
-    time = 5; //21;
+    time = 21;
   }
   scoreDisplay.innerHTML = score;
 };
@@ -132,7 +132,7 @@ checkFinalScoreIsHigh = () => {
   finalScore = score;
   finalScoreDisplay.innerHTML = finalScore;
   if (finalScore >= 3) {
-    endMessage.innerHTML = "Wow! That's super fast. Have a break.";
+    endMessage.innerHTML = "Wow! That was super fast. Have a break.";
   } else {
     endMessage.innerHTML = "Good Effort. Better luck next time!";
   }
