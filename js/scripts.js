@@ -20,13 +20,14 @@ const finishedModal = document.querySelector(".finished-modal");
 const newGameBtn = document.getElementById("new-game-btn");
 const finalScoreDisplay = document.getElementById("final-score");
 const overallTimer = document.getElementById("overall-timer");
+const endMessage = document.querySelector(".end-message");
 
 // Global Variables
 //use Date.now() because setInt and setTimeout are arbitrary
 let startTime = Date.now();
 let newTime;
-
-let time = 21;
+let finalScore;
+let time = 15; //21;
 let score = 0;
 let countdownTimer = 3;
 let isPlaying = false;
@@ -104,7 +105,6 @@ countdown = () => {
     } else if (time === 0) {
       currentGame.style.display = "none";
       finishedModal.style.display = "block";
-      // finalScoreDisplay.innerHTML = finalScore;
     }
     timer.innerHTML = time;
   }
@@ -125,10 +125,21 @@ checkMatch = () => {
   if (matchWords()) {
     score++;
     newQuote();
-    time = 21;
+    time = 15; //21;
   }
   scoreDisplay.innerHTML = score;
-  finalScoreDisplay.innerHTML = score;
+  finalScore = score;
+  // finalScoreDisplay.innerHTML = score;
+  checkFinalScore();
+};
+
+checkFinalScore = () => {
+  finalScoreDisplay.innerHTML = finalScore;
+  if (finalScore >= 5) {
+    // currently adds this each time a score is over 5. need to adjust to only append once
+    const bossLevelSpeed = `<p>Wow! That's super fast. Have a break:</p><iframe width="560" height="315" src="https://www.youtube.com/embed/TyEBeHvNJvE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    endMessage.appendChild(bossLevelSpeed);
+  }
 };
 
 // returns boolean
@@ -160,3 +171,10 @@ toggleVolume = () => {
 startBtn.addEventListener("click", init);
 
 muteBtn.addEventListener("click", toggleVolume);
+
+// Loading
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    document.querySelector("body").classList.add("loaded");
+  }, 3000);
+});

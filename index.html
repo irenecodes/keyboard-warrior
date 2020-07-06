@@ -6,6 +6,8 @@
     <title>Keyboard Warrior</title>
     <!-- link to favicon -->
     <link type="image/png" href="assets/favicon.png" rel="icon">
+    <!-- animate css  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <!-- link to css style -->
     <link
       rel="stylesheet"
@@ -16,10 +18,18 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
+    <div id="loader-wrapper">
+      <div id="loader" class="animate__animated animate__slow animate__flash infinite">
+        <h1>...Loading...</h1>
+        <img src="assets/favicon.png" alt="">
+      </div>
+    
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
     <header>
       <h1 class=" text-center">Keyboard Warrior</h1>
       <div class="controls p-2 m-3 border d-flex justify-content-between">
-        
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#instructionsModal">
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" focusable="false"
             role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -66,8 +76,6 @@
               <path fill-rule="evenodd" d="M9.146 5.646a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0z" />
             </svg>
           </button>
-          
-          
         </div>
       </div>
     </header>
@@ -109,10 +117,18 @@
       
       <div class="finished-modal p-2 m-3 border"">
         <p>Game Over!</p>
+        
         <p>
           Good effort! You scored <span id="final-score">0</span> points in
           <span id="overall-timer"></span> seconds.
+          <div>
+            <a class="twitter-share-button" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=Hello%20world" data-size="large" data-text="custom share text"
+              data-url="https://dev.twitter.com/web/tweet-button" data-hashtags="vanillajs,bootstrap" data-via="ireneycodes">
+              Tweet your score!
+            </a>
+          </div>
         </p>
+        <div class="end-message"></div>
         <button id="new-game-btn" class="btn btn-block btn-outline-success" onClick="window.location.reload()">
           Start a new game?
         </button>
@@ -142,7 +158,8 @@
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+    <!-- <script src="js/widgets.js"></script> -->
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
     <script src="js/scripts.js"></script>
   </body>
 </html>
