@@ -219,11 +219,6 @@ body {
   font-size: 16px;
 }
 
-.wrapper {
-  margin: 0 auto;
-  width: 90%;
-}
-
 .info svg {
   cursor: pointer;
 }
@@ -263,7 +258,7 @@ main {
   top: 0;
   width: 50%;
   height: 100%;
-  background: #222222;
+  background: #222;
   z-index: 1000;
 }
 
@@ -277,7 +272,7 @@ main {
 
 #loader {
   position: absolute;
-  z-index: 5000 !important;
+  z-index: 5000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -298,22 +293,6 @@ main {
 #loader h1 {
   color: #fff;
   z-index: 10005;
-}
-
-.loaded #loader-wrapper .loader-section.section-left {
-  -webkit-transform: translateX(-100%);
-  /* Chrome, Opera 15+, Safari 3.1+ */
-  /* IE 9 */
-  transform: translateX(-100%);
-  /* Firefox 16+, IE 10+, Opera */
-}
-
-.loaded #loader-wrapper .loader-section.section-right {
-  -webkit-transform: translateX(100%);
-  /* Chrome, Opera 15+, Safari 3.1+ */
-  /* IE 9 */
-  transform: translateX(100%);
-  /* Firefox 16+, IE 10+, Opera */
 }
 
 .loaded #loader {

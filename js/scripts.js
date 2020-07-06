@@ -102,7 +102,6 @@ countdown = () => {
       }
     } else if (time === 0) {
       isPlaying = false;
-      currentGame.style.display = "none";
       finishedModal.style.display = "block";
     }
     checkStatus();
@@ -187,7 +186,7 @@ muteBtn.addEventListener("click", toggleVolume);
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     document.querySelector("body").classList.add("loaded");
-  }, 3000);
+  }, 2500);
 });
 
 // to do
