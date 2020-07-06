@@ -39,9 +39,8 @@ watchTime = () => {
       newTime = Math.floor((Date.now() - startTime) / 1000);
     }, 1000);
   }
-  newTime = newTime - 3;
   // rid of countdown timer
-  overallTimer.innerText = newTime;
+  overallTimer.innerText = newTime - 3;
 };
 
 getQuote = () => {
@@ -129,24 +128,11 @@ checkMatch = () => {
   scoreDisplay.innerHTML = score;
 };
 
-// check checkFinalScoreIsHigh is running every second - will need to check why bc the video keeps updating in the DOM every second
 checkFinalScoreIsHigh = () => {
-  console.log("run");
   finalScore = score;
-
   finalScoreDisplay.innerHTML = finalScore;
   if (finalScore >= 3) {
-    // currently adds this each time a score is over 5. need to adjust to only append once
-    const highScoreMedia = document.createElement("iframe");
-    highScoreMedia.src = "https://www.youtube.com/embed/TyEBeHvNJvE";
-    highScoreMedia.width = "560";
-    highScoreMedia.height = "315";
-    highScoreMedia.allowFullscreen;
-
-    // const bossLevelSpeed = `<iframe width="560" height="315" src="https://www.youtube.com/embed/TyEBeHvNJvE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-
-    endMessage.innerHTML = "Wow! That's super fast. Have a break:";
-    endMessage.appendChild(highScoreMedia);
+    endMessage.innerHTML = "Wow! That's super fast. Have a break.";
   } else {
     endMessage.innerHTML = "Good Effort. Better luck next time!";
   }
@@ -191,6 +177,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // to do
 // - fix overall timer. inaccurate time at end of game
-
-// extras
-// - tweet button to share on twitter your score and url to game

@@ -6,6 +6,9 @@
     <title>Keyboard Warrior</title>
     <!-- link to favicon -->
     <link type="image/png" href="assets/favicon.png" rel="icon">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- animate css  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <!-- link to css style -->
@@ -115,19 +118,22 @@
       </div>
       
       <div class="finished-modal p-2 m-3 border"">
-        <p>Game Over!</p>
+        <h2 class="text-center warning-red animate__animated animate__shakeX ">Game Over!</h2>
         
         <p>
           Good effort! You scored <span id="final-score">0</span> points in
           <span id="overall-timer"></span> seconds.
-          <div>
-            <a class="twitter-share-button" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=Hello%20world" data-size="large" data-text="custom share text"
-              data-url="https://dev.twitter.com/web/tweet-button" data-hashtags="vanillajs,bootstrap" data-via="ireneycodes">
-              Tweet your score!
-            </a>
-          </div>
         </p>
-        <div id="end-message" class="pb-3">I want to replace this dynamically depending on what the user scores</div>
+
+        <div id="end-message" class="pb-3"></div>
+
+        <a class="twitter-share-button btn btn-primary mb-3" target="_blank" rel="noopener noreferrer"
+          href="https://twitter.com/intent/tweet?text=I%20just%20played%20Keyboard%20Warrior&url=https%3A%2F%2Firenecodes.github.io%2Fkeyboard-warrior%2F&&hashtags=bootstrap4,vanillajs&via=ireneycodes"
+          data-size="large" data-url="https://dev.twitter.com/web/tweet-button">
+          <i class="fab fa-twitter"></i>
+          Share This Game on Twitter!
+        </a>
+        
         <button id="new-game-btn" class="btn btn-block btn-outline-success" onClick="window.location.reload()">
           Start a new game?
         </button>
@@ -157,8 +163,6 @@
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <!-- <script src="js/widgets.js"></script> -->
-    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
     <script src="js/scripts.js"></script>
   </body>
 </html>

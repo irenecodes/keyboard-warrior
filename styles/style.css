@@ -217,6 +217,14 @@ input::-moz-focus-inner {
 
 body {
   font-size: 16px;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .info svg {
@@ -248,9 +256,16 @@ body {
 }
 
 main {
-  min-height: 100%;
   overflow: auto;
   padding-bottom: 50px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+footer {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 #loader-wrapper .loader-section {

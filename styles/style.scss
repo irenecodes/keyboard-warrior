@@ -187,6 +187,10 @@ input::-moz-focus-inner {
 // global styles
 body {
   font-size: 16px;
+  // to push footer to bottom
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .info {
@@ -220,9 +224,14 @@ body {
 }
 
 main {
-  min-height: 100%;
   overflow: auto;
   padding-bottom: 50px;
+  // to push footer to bottom
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
 }
 
 // loader
@@ -290,10 +299,3 @@ textarea {
 textarea {
   width: 100%;
 }
-
-// footer {
-//   position: absolute;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-// }
