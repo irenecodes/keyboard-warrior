@@ -20,14 +20,14 @@ const finishedModal = document.querySelector(".finished-modal");
 const newGameBtn = document.getElementById("new-game-btn");
 const finalScoreDisplay = document.getElementById("final-score");
 const overallTimer = document.getElementById("overall-timer");
-const endMessage = document.querySelector(".end-message");
+const endMessage = document.getElementById("end-message");
 
 // Global Variables
 //use Date.now() because setInt and setTimeout are arbitrary
 let startTime = Date.now();
 let newTime;
 let finalScore;
-let time = 15; //21;
+let time = 5; //21;
 let score = 0;
 let countdownTimer = 3;
 let isPlaying = false;
@@ -65,6 +65,7 @@ async function newQuote() {
 checkStatus = () => {
   if (!isPlaying) {
     document.getElementById("quoteInput").disabled = true;
+    checkFinalScoreIsHigh();
   } else {
     document.getElementById("quoteInput").disabled = false;
   }
@@ -76,8 +77,11 @@ init = () => {
   setInterval(countdown, 1000);
   newQuote();
   quoteInput.addEventListener("input", checkMatch);
+  // checkFinalScoreIsHigh();
   // check game status
-  setInterval(checkStatus, 50);
+  // isPlaying = true;
+  checkStatus();
+  // setInterval(checkStatus, 50);
 };
 
 countdown = () => {
@@ -88,7 +92,6 @@ countdown = () => {
     countSound.play();
     // after countdown, start actual game countdown
   } else if (countdownTimer === 0) {
-    // fade out?
     countdownTimerDOM.style.display = "none";
     if (time > 0) {
       startModal.style.display = "none";
@@ -103,9 +106,11 @@ countdown = () => {
         timer.classList.remove("warning-red");
       }
     } else if (time === 0) {
+      isPlaying = false;
       currentGame.style.display = "none";
       finishedModal.style.display = "block";
     }
+    checkStatus();
     timer.innerHTML = time;
   }
 };
@@ -125,20 +130,30 @@ checkMatch = () => {
   if (matchWords()) {
     score++;
     newQuote();
-    time = 15; //21;
+    time = 5; //21;
   }
   scoreDisplay.innerHTML = score;
-  finalScore = score;
-  // finalScoreDisplay.innerHTML = score;
-  checkFinalScore();
 };
 
-checkFinalScore = () => {
+checkFinalScoreIsHigh = () => {
+  console.log("run");
+  finalScore = score;
+
   finalScoreDisplay.innerHTML = finalScore;
-  if (finalScore >= 5) {
+  if (finalScore >= 3) {
     // currently adds this each time a score is over 5. need to adjust to only append once
-    const bossLevelSpeed = `<p>Wow! That's super fast. Have a break:</p><iframe width="560" height="315" src="https://www.youtube.com/embed/TyEBeHvNJvE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-    endMessage.appendChild(bossLevelSpeed);
+    // let highScoreMessage = document.createElement("p");
+    // highScoreMessage.innerHTML = "Wow! That's super fast. Have a break:";
+
+    // const bossLevelSpeed = `<iframe width="560" height="315" src="https://www.youtube.com/embed/TyEBeHvNJvE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    // // endMessage.appendChild(highScoreMessage);
+    // endMessage.insertAdjacentHTML(
+    //   "beforeEnd",
+    //   "<p>Wow! That's super fast. Have a break:</p>"
+    // );
+    endMessage.innerHTML = "Wow! That's super fast. Have a break:";
+  } else {
+    endMessage.innerHTML = "Good Effort. Better luck next time!";
   }
 };
 
